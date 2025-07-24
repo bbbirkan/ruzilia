@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,21 +36,10 @@
             border-radius: 9999px;
             background-color: #00429d;
             border: 3px solid #7da8c9;
+            /* Adjusted to correctly position the circle on the timeline bar */
             left: -2.5rem; 
             top: 0.25rem;
             z-index: 10;
-        }
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #4771b2;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -175,50 +163,10 @@
                 </div>
             </div>
 
-            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-center mb-6 text-[#00429d]">✨ AI-Powered Career Tools</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-semibold mb-3 text-center text-[#4771b2]">Cover Letter Assistant</h3>
-                    <p class="text-center text-gray-600 mb-4">Enter a job title to generate a compelling introductory paragraph for your cover letter.</p>
-                    <div class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto">
-                        <input type="text" id="jobTitleInput" placeholder="e.g., Senior Data Analyst" class="flex-grow p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#7da8c9] focus:outline-none">
-                        <button id="generateCoverLetterBtn" class="bg-[#00429d] text-white font-bold py-2 px-4 rounded-md hover:bg-[#4771b2] transition-colors flex items-center justify-center">
-                            <span class="mr-2">✨ Generate Intro</span>
-                            <div id="coverLetterLoader" class="loader hidden"></div>
-                        </button>
-                    </div>
-                    <div id="coverLetterOutput" class="mt-4 p-4 bg-blue-50 border border-dashed border-[#7da8c9] rounded-md text-gray-700 min-h-[100px] max-w-lg mx-auto hidden"></div>
-                     <button id="copyCoverLetterBtn" class="mt-2 mx-auto block bg-gray-200 text-gray-700 py-1 px-3 rounded-md hover:bg-gray-300 transition-colors hidden">Copy Text</button>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-semibold mb-3 text-center text-[#4771b2]">Interview Prep Assistant</h3>
-                     <p class="text-center text-gray-600 mb-4">Generate potential interview questions based on this resume to help you prepare.</p>
-                    <div class="text-center">
-                        <button id="generateQuestionsBtn" class="bg-[#00429d] text-white font-bold py-2 px-4 rounded-md hover:bg-[#4771b2] transition-colors flex items-center justify-center mx-auto">
-                           <span class="mr-2">✨ Suggest Questions</span>
-                           <div id="questionsLoader" class="loader hidden"></div>
-                        </button>
-                    </div>
-                    <div id="questionsOutput" class="mt-4 p-4 bg-blue-50 border border-dashed border-[#7da8c9] rounded-md text-gray-700 max-w-lg mx-auto hidden"></div>
-                </div>
-            </div>
-
         </main>
     </div>
 
 <script>
-    // --- Resume Data for Prompts ---
-    const resumeData = {
-        name: "Ruzilia Kalyon",
-        title: "Data & Market Analyst",
-        experienceYears: "10+",
-        industries: ["Retail", "Chemical", "Food Industry", "Telecommunications", "Banking"],
-        coreSkills: ["Data Analysis", "Market Research", "Reporting", "Forecasting", "Statistical Analysis", "Data Visualization", "Strategy"],
-        technicalSkills: ["Python (NumPy, Pandas)", "Tableau", "SQL (Oracle, MySQL)", "MS Excel (Pivot Tables)", "REST API", "HTML/CSS/JS"]
-    };
-
     // --- Contact Info Revealer ---
     document.addEventListener('DOMContentLoaded', () => {
         const emailLink = document.getElementById('email-link');
@@ -246,122 +194,7 @@
         }, { once: true });
     });
 
-    // --- Cover Letter Generator ---
-    const generateCoverLetterBtn = document.getElementById('generateCoverLetterBtn');
-    const jobTitleInput = document.getElementById('jobTitleInput');
-    const coverLetterOutput = document.getElementById('coverLetterOutput');
-    const coverLetterLoader = document.getElementById('coverLetterLoader');
-    const copyCoverLetterBtn = document.getElementById('copyCoverLetterBtn');
-
-    generateCoverLetterBtn.addEventListener('click', async () => {
-        const jobTitle = jobTitleInput.value.trim();
-        if (!jobTitle) {
-            coverLetterOutput.textContent = "Please enter a job title first.";
-            coverLetterOutput.classList.remove('hidden');
-            return;
-        }
-
-        generateCoverLetterBtn.disabled = true;
-        coverLetterLoader.classList.remove('hidden');
-        coverLetterOutput.classList.add('hidden');
-        copyCoverLetterBtn.classList.add('hidden');
-
-        const prompt = `
-            Based on the following resume summary, write a compelling and professional 2-3 sentence introductory paragraph for a cover letter. The paragraph should be tailored for the job title of "${jobTitle}".
-
-            Resume Summary:
-            - Candidate: ${resumeData.name}
-            - Experience: Over ${resumeData.experienceYears} years as a Data and Market Analyst.
-            - Key Industries: ${resumeData.industries.join(', ')}.
-            - Core Competencies: ${resumeData.coreSkills.join(', ')}.
-            - Key Technical Skills: ${resumeData.technicalSkills.join(', ')}.
-
-            Generate only the introductory paragraph text.
-        `;
-        
-        try {
-            // GÜVENLİ YÖNTEM: API isteğini kendi sunucumuza gönderiyoruz.
-            const response = await fetch('/api/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt: prompt })
-            });
-            const result = await response.json();
-            
-            if (response.ok) {
-                coverLetterOutput.innerHTML = result.text.replace(/\n/g, '<br>');
-            } else {
-                coverLetterOutput.textContent = result.error || "An error occurred while generating the text.";
-            }
-        } catch (error) {
-            console.error("Error fetching from server:", error);
-            coverLetterOutput.textContent = "Failed to connect to the server. Please try again.";
-        } finally {
-            generateCoverLetterBtn.disabled = false;
-            coverLetterLoader.classList.add('hidden');
-            coverLetterOutput.classList.remove('hidden');
-            copyCoverLetterBtn.classList.remove('hidden');
-        }
-    });
-
-    copyCoverLetterBtn.addEventListener('click', () => {
-        const textToCopy = coverLetterOutput.innerText;
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            copyCoverLetterBtn.textContent = 'Copied!';
-            setTimeout(() => { copyCoverLetterBtn.textContent = 'Copy Text'; }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy text: ', err);
-        });
-    });
-
-    // --- Interview Question Generator ---
-    const generateQuestionsBtn = document.getElementById('generateQuestionsBtn');
-    const questionsOutput = document.getElementById('questionsOutput');
-    const questionsLoader = document.getElementById('questionsLoader');
-
-    generateQuestionsBtn.addEventListener('click', async () => {
-        generateQuestionsBtn.disabled = true;
-        questionsLoader.classList.remove('hidden');
-        questionsOutput.classList.add('hidden');
-
-        const prompt = `
-            Act as a hiring manager for a data analyst role. Based on the resume summary below, generate a list of 5 insightful interview questions that you would ask this candidate. The questions should probe their skills and experience.
-
-            Resume Summary:
-            - Candidate: ${resumeData.name}
-            - Experience: Over ${resumeData.experienceYears} years as a Data and Market Analyst.
-            - Key Industries: ${resumeData.industries.join(', ')}.
-            - Core Competencies: ${resumeData.coreSkills.join(', ')}.
-            - Key Technical Skills: ${resumeData.technicalSkills.join(', ')}.
-
-            Format the output as a numbered list.
-        `;
-        
-        try {
-             // GÜVENLİ YÖNTEM: API isteğini kendi sunucumuza gönderiyoruz.
-            const response = await fetch('/api/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt: prompt })
-            });
-            const result = await response.json();
-            
-            if (response.ok) {
-                questionsOutput.innerHTML = result.text.replace(/\n/g, '<br>');
-            } else {
-                questionsOutput.textContent = result.error || "An error occurred while generating questions.";
-            }
-        } catch (error) {
-            console.error("Error fetching from server:", error);
-            questionsOutput.textContent = "Failed to connect to the server. Please try again.";
-        } finally {
-            generateQuestionsBtn.disabled = false;
-            questionsLoader.classList.add('hidden');
-            questionsOutput.classList.remove('hidden');
-        }
-    });
-
-    // --- Chart.js Initializations (Değişiklik Yok) ---
+    // --- Chart.js Initializations ---
     const vibrantPalette = {
         darkBlue: '#00429d',
         mediumBlue: '#4771b2',
