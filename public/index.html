@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruzilia Kalyon - Visual Resume Infographic</title>
+    <title>Ruzilia Kalyon - Data Analyst | Marketing Analyst | Supply Chain Expert</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +15,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
         }
+
         .chart-container {
             position: relative;
             width: 100%;
@@ -23,11 +25,13 @@
             height: 320px;
             max-height: 400px;
         }
+
         @media (min-width: 768px) {
             .chart-container {
                 height: 350px;
             }
         }
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -37,23 +41,27 @@
             background-color: #00429d;
             border: 3px solid #7da8c9;
             /* Adjusted to correctly position the circle on the timeline bar */
-            left: -2.5rem; 
+            left: -2.5rem;
             top: 0.25rem;
             z-index: 10;
         }
     </style>
 </head>
+
 <body class="text-gray-800">
     <div class="container mx-auto p-4 md:p-8">
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold text-[#00429d]">Ruzilia Kalyon</h1>
-            <p class="text-xl text-[#4771b2] mt-2">Data &amp; Market Analyst</p>
-            <div class="mt-4 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 text-gray-600">
+            <p class="text-xl text-[#4771b2] mt-2">Data Analyst | Marketing Analyst | Supply Chain Expert</p>
+            <div
+                class="mt-4 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 text-gray-600">
                 <span id="email-container">
-                    <a href="#" id="email-link" class="hover:text-[#00429d]" data-email="cnV6aWxpYWthbHlvbkBnbWFpbC5jb20=">&#128231; Click to reveal email</a>
+                    <a href="#" id="email-link" class="hover:text-[#00429d]"
+                        data-email="cnV6aWxpYWthbHlvbkBnbWFpbC5jb20=">&#128231; Click to reveal email</a>
                 </span>
                 <span id="phone-container">
-                    <a href="#" id="phone-link" class="hover:text-[#00429d]" data-phone="KDYwOSktMjAyLTQyMjQ=">&#128222; Click to reveal phone</a>
+                    <a href="#" id="phone-link" class="hover:text-[#00429d]" data-phone="KDYwOSktMjAyLTQyMjQ=">&#128222;
+                        Click to reveal phone</a>
                 </span>
                 <span>&#127760; Salem, NJ</span>
             </div>
@@ -61,7 +69,8 @@
 
         <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center justify-around text-center">
+            <div
+                class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center justify-around text-center">
                 <div class="p-4">
                     <p class="text-6xl font-bold text-[#00429d]">10+</p>
                     <p class="text-lg text-gray-600 mt-2">Years of Experience</p>
@@ -71,7 +80,7 @@
                     <p class="text-6xl font-bold text-[#00429d]">5</p>
                     <p class="text-lg text-gray-600 mt-2">Major Industries Served</p>
                 </div>
-                 <div class="w-px bg-gray-200 h-24 hidden md:block"></div>
+                <div class="w-px bg-gray-200 h-24 hidden md:block"></div>
                 <div class="p-4">
                     <p class="text-6xl font-bold text-[#00429d]">15+</p>
                     <p class="text-lg text-gray-600 mt-2">Key Technical &amp; Analytical Skills</p>
@@ -80,7 +89,8 @@
 
             <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6">
                 <h2 class="text-2xl font-bold text-center mb-4 text-[#00429d]">Core Competencies</h2>
-                <p class="text-center text-gray-600 mb-6">A holistic view of analytical, strategic, and reporting capabilities honed over a decade in corporate environments.</p>
+                <p class="text-center text-gray-600 mb-6">A holistic view of analytical, strategic, and reporting
+                    capabilities honed over a decade in corporate environments.</p>
                 <div class="chart-container">
                     <canvas id="skillsRadarChart"></canvas>
                 </div>
@@ -88,49 +98,56 @@
 
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <h2 class="text-2xl font-bold text-center mb-4 text-[#00429d]">Industry Exposure</h2>
-                 <p class="text-center text-gray-600 mb-6">Experience spanning diverse global sectors, providing a unique cross-industry perspective.</p>
+                <p class="text-center text-gray-600 mb-6">Experience spanning diverse global sectors, providing a unique
+                    cross-industry perspective.</p>
                 <div class="chart-container">
                     <canvas id="industryDonutChart"></canvas>
                 </div>
             </div>
-            
+
             <div class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
                 <h2 class="text-2xl font-bold text-center mb-4 text-[#00429d]">Professional Journey</h2>
-                <p class="text-center text-gray-600 mb-8">A timeline of key roles contributing to major European companies and demonstrating a consistent growth trajectory.</p>
+                <p class="text-center text-gray-600 mb-8">A timeline of key roles contributing to major European
+                    companies and demonstrating a consistent growth trajectory.</p>
                 <div class="relative border-l-2 border-[#7da8c9] pl-8 space-y-10">
                     <div class="relative timeline-item">
                         <h3 class="text-xl font-semibold text-[#00429d]">Analyst</h3>
-                        <p class="text-md font-medium text-gray-700">Magnit, Krasnodar, Russia (Retail)</p>
-                        <p class="text-sm text-gray-500">Dec 2021 - May 2023</p>
+                        <p class="text-md font-medium text-gray-700">Magnit (Retail/E-commerce)</p>
+                        <p class="text-sm text-gray-500">Oct 2012 - Sep 2014 | 2 years</p>
                         <ul class="list-disc list-inside mt-2 text-gray-600 text-sm">
-                            <li>Analyzed sales and marketing data to identify trends and inform strategy.</li>
-                            <li>Developed dashboards for performance tracking and forecasting.</li>
+                            <li>Led data analysis initiatives for major Russian retail chain</li>
+                            <li>Forecasting and demand planning using statistical models</li>
+                            <li>Business analysis and KPI reporting</li>
+                            <li>Market research and competitive analysis</li>
+                            <li>Data-driven pricing strategy development</li>
+                            <li><strong>Skills:</strong> Forecasting, Microsoft Excel, Business Analysis, Data Analysis,
+                                Market Research, Pricing Strategy</li>
                         </ul>
                     </div>
                     <div class="relative timeline-item">
                         <h3 class="text-xl font-semibold text-[#00429d]">Brand Manager</h3>
-                        <p class="text-md font-medium text-gray-700">Henkel, Moscow, Russia (Chemical Industry)</p>
-                        <p class="text-sm text-gray-500">May 2017 - Oct 2018</p>
-                         <ul class="list-disc list-inside mt-2 text-gray-600 text-sm">
-                            <li>Managed brand strategy, market research, and A/B testing initiatives.</li>
-                            <li>Oversaw pricing, budgeting, and data-driven marketing campaigns.</li>
+                        <p class="text-md font-medium text-gray-700">Henkel (FMCG)</p>
+                        <p class="text-sm text-gray-500">Full-time</p>
+                        <ul class="list-disc list-inside mt-2 text-gray-600 text-sm">
+                            <li>Developed, organized and conducted marketing campaigns</li>
+                            <li>Analyzed results of marketing campaigns and created product hypotheses</li>
+                            <li>Analyzed market and competitors using Excel and PowerPoint</li>
+                            <li>Developed terms of reference for IT services to customize and automate reporting</li>
+                            <li>Organized and optimized reporting processes</li>
+                            <li><strong>Skills:</strong> Excel (Pivot Tables, Data Visualization), Market Analysis,
+                                Marketing, Pricing Strategy, Data Analytics</li>
                         </ul>
                     </div>
                     <div class="relative timeline-item">
-                        <h3 class="text-xl font-semibold text-[#00429d]">Marketing Manager</h3>
-                        <p class="text-md font-medium text-gray-700">Danone, Moscow, Russia (Food Industry)</p>
-                        <p class="text-sm text-gray-500">Jan 2014 - Apr 2017</p>
-                         <ul class="list-disc list-inside mt-2 text-gray-600 text-sm">
-                            <li>Led marketing analytics, statistical analysis, and campaign reporting.</li>
-                            <li>Contributed to data governance and strategy for the marketing department.</li>
-                        </ul>
-                    </div>
-                     <div class="relative timeline-item">
-                        <h3 class="text-xl font-semibold text-[#00429d]">Prior Experience</h3>
-                        <p class="text-md font-medium text-gray-700">Telecommunications & Banking Industries</p>
-                        <p class="text-sm text-gray-500">Before 2014</p>
-                         <ul class="list-disc list-inside mt-2 text-gray-600 text-sm">
-                            <li>Held foundational roles in major companies within the telecommunications and banking sectors, building a strong corporate base.</li>
+                        <h3 class="text-xl font-semibold text-[#00429d]">Supply Chain Coordinator</h3>
+                        <p class="text-md font-medium text-gray-700">Kalyon</p>
+                        <p class="text-sm text-gray-500">Sep 2010 - Oct 2012 | 2 years 2 months</p>
+                        <ul class="list-disc list-inside mt-2 text-gray-600 text-sm">
+                            <li>Managed daily warehouse stocks and deliveries of products to regional branch</li>
+                            <li>Conducted reporting and factor analysis of distribution center activities in KPI</li>
+                            <li>Monitored and analyzed implementation of distribution center plan</li>
+                            <li><strong>Achievement:</strong> Streamlined distribution center operations through
+                                data-driven KPI tracking</li>
                         </ul>
                     </div>
                 </div>
@@ -138,15 +155,17 @@
 
             <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6">
                 <h2 class="text-2xl font-bold text-center mb-4 text-[#00429d]">Technical Skillset</h2>
-                <p class="text-center text-gray-600 mb-6">Proficiency in a modern stack of data analysis, visualization, and web technologies.</p>
+                <p class="text-center text-gray-600 mb-6">Proficiency in a modern stack of data analysis, visualization,
+                    and web technologies.</p>
                 <div class="chart-container h-96 md:h-[450px]">
                     <canvas id="techSkillsBarChart"></canvas>
                 </div>
             </div>
-            
+
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <h2 class="text-2xl font-bold text-center mb-4 text-[#00429d]">Recent Certifications</h2>
-                <p class="text-center text-gray-600 mb-6">A commitment to continuous learning and staying current with industry-standard tools and methodologies.</p>
+                <p class="text-center text-gray-600 mb-6">A commitment to continuous learning and staying current with
+                    industry-standard tools and methodologies.</p>
                 <div class="space-y-4">
                     <div class="p-4 bg-blue-50 rounded-lg border border-[#7da8c9]">
                         <p class="font-semibold text-[#00429d]">Google Data Analytics</p>
@@ -166,184 +185,185 @@
         </main>
     </div>
 
-<script>
-    // --- Contact Info Revealer ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const emailLink = document.getElementById('email-link');
-        emailLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            const encodedEmail = e.currentTarget.getAttribute('data-email');
-            const decodedEmail = atob(encodedEmail);
-            const mailtoLink = document.createElement('a');
-            mailtoLink.href = `mailto:${decodedEmail}`;
-            mailtoLink.textContent = `📧 ${decodedEmail}`;
-            mailtoLink.className = 'text-[#00429d]';
-            document.getElementById('email-container').replaceWith(mailtoLink);
-        }, { once: true });
+    <script>
+        // --- Contact Info Revealer ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailLink = document.getElementById('email-link');
+            emailLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const encodedEmail = e.currentTarget.getAttribute('data-email');
+                const decodedEmail = atob(encodedEmail);
+                const mailtoLink = document.createElement('a');
+                mailtoLink.href = `mailto:${decodedEmail}`;
+                mailtoLink.textContent = `📧 ${decodedEmail}`;
+                mailtoLink.className = 'text-[#00429d]';
+                document.getElementById('email-container').replaceWith(mailtoLink);
+            }, { once: true });
 
-        const phoneLink = document.getElementById('phone-link');
-        phoneLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            const encodedPhone = e.currentTarget.getAttribute('data-phone');
-            const decodedPhone = atob(encodedPhone);
-            const telLink = document.createElement('a');
-            telLink.href = `tel:${decodedPhone.replace(/\D/g,'')}`;
-            telLink.textContent = `📞 ${decodedPhone}`;
-            telLink.className = 'text-[#00429d]';
-            document.getElementById('phone-container').replaceWith(telLink);
-        }, { once: true });
-    });
-
-    // --- Chart.js Initializations ---
-    const vibrantPalette = {
-        darkBlue: '#00429d',
-        mediumBlue: '#4771b2',
-        lightBlue: '#7da8c9',
-        paleBlue: '#abbfd1',
-        lightGray: '#d0d8da',
-        accentYellow: '#fca311',
-    };
-
-    const chartTooltipTitleCallback = (tooltipItems) => {
-        const item = tooltipItems[0];
-        let label = item.chart.data.labels[item.dataIndex];
-        return Array.isArray(label) ? label.join(' ') : label;
-    };
-
-    const processLabels = (labels) => {
-        return labels.map(label => {
-            if (label.length > 16) {
-                const words = label.split(' ');
-                const lines = [];
-                let currentLine = '';
-                words.forEach(word => {
-                    if ((currentLine + ' ' + word).trim().length > 16) {
-                        lines.push(currentLine.trim());
-                        currentLine = word;
-                    } else {
-                        currentLine = (currentLine + ' ' + word).trim();
-                    }
-                });
-                lines.push(currentLine.trim());
-                return lines;
-            }
-            return label;
+            const phoneLink = document.getElementById('phone-link');
+            phoneLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const encodedPhone = e.currentTarget.getAttribute('data-phone');
+                const decodedPhone = atob(encodedPhone);
+                const telLink = document.createElement('a');
+                telLink.href = `tel:${decodedPhone.replace(/\D/g, '')}`;
+                telLink.textContent = `📞 ${decodedPhone}`;
+                telLink.className = 'text-[#00429d]';
+                document.getElementById('phone-container').replaceWith(telLink);
+            }, { once: true });
         });
-    };
 
-    const skillsRadarCtx = document.getElementById('skillsRadarChart').getContext('2d');
-    new Chart(skillsRadarCtx, {
-        type: 'radar',
-        data: {
-            labels: ['Data Analysis', 'Strategy', 'Market Research', 'Reporting', 'Forecasting', 'Management'],
-            datasets: [{
-                label: 'Competency Level',
-                data: [9, 8, 9, 8, 7, 8],
-                backgroundColor: 'rgba(71, 113, 178, 0.2)',
-                borderColor: vibrantPalette.mediumBlue,
-                pointBackgroundColor: vibrantPalette.mediumBlue,
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: vibrantPalette.mediumBlue
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: { callbacks: { title: chartTooltipTitleCallback } }
+        // --- Chart.js Initializations ---
+        const vibrantPalette = {
+            darkBlue: '#00429d',
+            mediumBlue: '#4771b2',
+            lightBlue: '#7da8c9',
+            paleBlue: '#abbfd1',
+            lightGray: '#d0d8da',
+            accentYellow: '#fca311',
+        };
+
+        const chartTooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            return Array.isArray(label) ? label.join(' ') : label;
+        };
+
+        const processLabels = (labels) => {
+            return labels.map(label => {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + ' ' + word).trim().length > 16) {
+                            lines.push(currentLine.trim());
+                            currentLine = word;
+                        } else {
+                            currentLine = (currentLine + ' ' + word).trim();
+                        }
+                    });
+                    lines.push(currentLine.trim());
+                    return lines;
+                }
+                return label;
+            });
+        };
+
+        const skillsRadarCtx = document.getElementById('skillsRadarChart').getContext('2d');
+        new Chart(skillsRadarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Data Analysis', 'Strategy', 'Market Research', 'Reporting', 'Forecasting', 'Management'],
+                datasets: [{
+                    label: 'Competency Level',
+                    data: [9, 8, 9, 8, 7, 8],
+                    backgroundColor: 'rgba(71, 113, 178, 0.2)',
+                    borderColor: vibrantPalette.mediumBlue,
+                    pointBackgroundColor: vibrantPalette.mediumBlue,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: vibrantPalette.mediumBlue
+                }]
             },
-            scales: {
-                r: {
-                    angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
-                    grid: { color: 'rgba(0, 0, 0, 0.1)' },
-                    pointLabels: { font: { size: 12 }, color: vibrantPalette.darkBlue },
-                    ticks: {
-                        backdropColor: 'transparent',
-                        stepSize: 2,
-                        font: { size: 10 }
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { title: chartTooltipTitleCallback } }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 12 }, color: vibrantPalette.darkBlue },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            stepSize: 2,
+                            font: { size: 10 }
+                        },
+                        min: 0,
+                        max: 10
+                    }
+                }
+            }
+        });
+
+        const industryDonutCtx = document.getElementById('industryDonutChart').getContext('2d');
+        new Chart(industryDonutCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Retail', 'Chemical', 'Food Industry', 'Telecom', 'Banking'],
+                datasets: [{
+                    label: 'Industry Experience',
+                    data: [20, 15, 30, 17.5, 17.5],
+                    backgroundColor: [
+                        vibrantPalette.darkBlue,
+                        vibrantPalette.mediumBlue,
+                        vibrantPalette.lightBlue,
+                        vibrantPalette.paleBlue,
+                        vibrantPalette.lightGray,
+                    ],
+                    borderColor: '#fff',
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: vibrantPalette.darkBlue }
                     },
-                    min: 0,
-                    max: 10
-                }
+                    tooltip: { callbacks: { title: chartTooltipTitleCallback } }
+                },
+                cutout: '60%'
             }
-        }
-    });
+        });
 
-    const industryDonutCtx = document.getElementById('industryDonutChart').getContext('2d');
-    new Chart(industryDonutCtx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Retail', 'Chemical', 'Food Industry', 'Telecom', 'Banking'],
-            datasets: [{
-                label: 'Industry Experience',
-                data: [20, 15, 30, 17.5, 17.5],
-                backgroundColor: [
-                    vibrantPalette.darkBlue,
-                    vibrantPalette.mediumBlue,
-                    vibrantPalette.lightBlue,
-                    vibrantPalette.paleBlue,
-                    vibrantPalette.lightGray,
-                ],
-                borderColor: '#fff',
-                hoverOffset: 4
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: { color: vibrantPalette.darkBlue }
-                },
-                tooltip: { callbacks: { title: chartTooltipTitleCallback } }
+        const techSkillsBarCtx = document.getElementById('techSkillsBarChart').getContext('2d');
+        new Chart(techSkillsBarCtx, {
+            type: 'bar',
+            data: {
+                labels: processLabels(['Python (NumPy, Pandas)', 'Tableau', 'SQL (Oracle, MySQL)', 'MS Excel (Pivot Tables)', 'REST API', 'Selenium WebDriver', 'HTML/CSS/JS']),
+                datasets: [{
+                    label: 'Technical Proficiency',
+                    data: [90, 85, 95, 98, 75, 70, 80],
+                    backgroundColor: [
+                        vibrantPalette.darkBlue,
+                        vibrantPalette.mediumBlue,
+                        vibrantPalette.lightBlue,
+                        vibrantPalette.paleBlue,
+                        vibrantPalette.lightGray,
+                        '#c2cdd0',
+                        '#b7c5c8'
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 1
+                }]
             },
-            cutout: '60%'
-        }
-    });
-    
-    const techSkillsBarCtx = document.getElementById('techSkillsBarChart').getContext('2d');
-    new Chart(techSkillsBarCtx, {
-        type: 'bar',
-        data: {
-            labels: processLabels(['Python (NumPy, Pandas)', 'Tableau', 'SQL (Oracle, MySQL)', 'MS Excel (Pivot Tables)', 'REST API', 'Selenium WebDriver', 'HTML/CSS/JS']),
-            datasets: [{
-                label: 'Technical Proficiency',
-                data: [90, 85, 95, 98, 75, 70, 80],
-                backgroundColor: [
-                    vibrantPalette.darkBlue, 
-                    vibrantPalette.mediumBlue, 
-                    vibrantPalette.lightBlue, 
-                    vibrantPalette.paleBlue,
-                    vibrantPalette.lightGray,
-                    '#c2cdd0',
-                    '#b7c5c8'
-                ],
-                borderColor: '#fff',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: { callbacks: { title: chartTooltipTitleCallback } }
-            },
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    grid: { display: false },
-                    ticks: { display: false }
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { title: chartTooltipTitleCallback } }
                 },
-                y: {
-                    grid: { display: false },
-                    ticks: { color: vibrantPalette.darkBlue, font: { size: 12 } }
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { display: false },
+                        ticks: { display: false }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { color: vibrantPalette.darkBlue, font: { size: 12 } }
+                    }
                 }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
+
 </html>
